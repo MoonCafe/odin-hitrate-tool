@@ -1,64 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const huntingData = [
-  { zone: "우드", level: 60, name: "골짜기의 폭포", offsets: { "50%": 119, "60%": 133, "75%": 146, "90%": 159, "95%": 179 } },
-  { zone: "루텐", level: 63, name: "비탄의 계곡", offsets: { "50%": 214, "60%": 228, "75%": 241, "90%": 254, "95%": 274 } },
-  // ... 계속 추가
+  { zone: "요툰", name: "공허의 골짜기", level: 48 },
+  { zone: "니다", name: "드베르그 부락", level: 63 },
+  { zone: "알브하임", name: "공허의 평원", level: 81 },
+  { zone: "무스펠", name: "불타버린 폐허", level: 83 },
+  { zone: "무스펠", name: "패자의 공터", level: 97 },
+  { zone: "무스펠", name: "역설의 땅", level: 111 },
+  { zone: "무스펠", name: "빛의 추격로", level: 118 },
+  { zone: "아스가르드", name: "아스신족 집결지", level: 121 },
+  { zone: "아스가르드", name: "칼바람 언덕", level: 127 },
+  { zone: "아스가르드", name: "망각의 여울 초입", level: 133 },
+  { zone: "아스가르드", name: "망각의 여울 끝", level: 138 },
+  { zone: "아스가르드", name: "격전의 주둔지", level: 139 },
+  { zone: "니플하임", name: "흐느끼는 망자의 숲", level: 141 },
+  { zone: "니플하임", name: "불사의 성역", level: 159 },
+  { zone: "니플하임", name: "굽이치는 용골산맥", level: 186 },
 ];
 
-export default function App() {
+const offsets = {
+  "50%": -25,
+  "60%": -11,
+  "75%": 2,
+  "80%": 5,
+  "90%": 15,
+  "95%": 35,
+};
+
+export default function OdinHitRateTool() {
   const [accuracy, setAccuracy] = useState(0);
 
-  const calculateRow = (level, offsets) => {
-    const result = {};
-    Object.entries(offsets).forEach(([label, required]) => {
-      result[label] = {
+  const calculateRow = (level) => {
+    const results = {};
+    Object.entries(offsets).forEach(([label, offset]) => {
+      const required = level * 3 + offset;
+      results[label] = {
+        required,
         met: accuracy >= required,
         remain: Math.max(0, required - accuracy),
       };
     });
-    return result;
+    return results;
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>오딘 명중률 계산기</h1>
-      <input
+    <div className="p-4 space-y-6">
+      <h1 className="text-2xl font-bold">오딘 명중률 계산기</h1>
+      <Input
         type="number"
         placeholder="현재 내 명중 수치 입력"
         value={accuracy}
         onChange={(e) => setAccuracy(Number(e.target.value))}
-        style={{ marginBottom: "20px", fontSize: "16px" }}
       />
-      <table border="1" cellPadding="6" cellSpacing="0">
-        <thead>
-          <tr>
-            <th>지역</th>
-            <th>사냥터</th>
-            <th>레벨</th>
-            {["50%", "60%", "75%", "90%", "95%"].map(label => (
-              <th key={label}>도달 여부 ({label})</th>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>지역</TableHead>
+            <TableHead>사냥터</TableHead>
+            <TableHead>레벨</TableHead>
+            {Object.keys(offsets).map((label) => (
+              <TableHead key={label}>{label} 도달</TableHead>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {huntingData.map((row, idx) => {
-            const result = calculateRow(row.level, row.offsets);
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {huntingData.map((d, idx) => {
+            const res = calculateRow(d.level);
             return (
-              <tr key={idx}>
-                <td>{row.zone}</td>
-                <td>{row.name}</td>
-                <td>{row.level}</td>
-                {Object.keys(row.offsets).map(label => (
-                  <td key={label}>
-                    {result[label].met ? "⭕" : `❌ (${result[label].remain})`}
-                  </td>
+              <TableRow key={idx}>
+                <TableCell>{d.zone}</TableCell>
+                <TableCell>{d.name}</TableCell>
+                <TableCell>{d.level}</TableCell>
+                {Object.keys(offsets).map((label) => (
+                  <TableCell key={label}>
+                    {res[label].met ? "⭕" : `X (필요: ${res[label].required}, 남음: ${res[label].remain})`}
+                  </TableCell>
                 ))}
-              </tr>
+              </TableRow>
             );
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   );
 }
