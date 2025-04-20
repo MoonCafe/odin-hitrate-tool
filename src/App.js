@@ -51,7 +51,7 @@ export default function OdinHitRateTool() {
       <h1 className="text-3xl font-bold mb-4 text-gray-800">오딘 명중률 계산기</h1>
       <Input
         type="number"
-        placeholder="현재 내 명중 수치 입력"
+        placeholder="현재 내 명중수치 입력"
         value={accuracy}
         className="w-full sm:w-64 text-base border rounded p-2"
         onChange={(e) => setAccuracy(Number(e.target.value))}
