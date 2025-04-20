@@ -3,19 +3,12 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const huntingData = [
-  { zone: "요툰하임", name: "초급 골짜기 북쪽", level: 60 },
-  { zone: "요툰하임", name: "초급 골짜기 남쪽", level: 61 },
-  { zone: "니다벨리르mport React, { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-
-const huntingData = [
   { zone: "요툰하임", name: "공허의 골짜기", level: 48 },
   { zone: "니다벨리르", name: "드베르그 부락", level: 63 },
   { zone: "알브하임", name: "공허의 평원", level: 81 },
   { zone: "무스펠하임", name: "불타버린 폐허", level: 83 },
   { zone: "무스펠하임", name: "밀회의 계곡", level: 93 },
-  { zone: "무스펠하임", name: "패자의공터", level: 97 },
+  { zone: "무스펠하임", name: "패자의 공터", level: 97 },
   { zone: "무스펠하임", name: "역설의 땅", level: 111 },
   { zone: "무스펠하임", name: "빛의 추격로", level: 118 },
   { zone: "아스가르드", name: "아스신족 집결지", level: 121 },
