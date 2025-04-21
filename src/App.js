@@ -70,7 +70,7 @@ export default function OdinHitRateTool() {
               <TableHead className="border px-1 py-1 w-2" />
               <TableHead className="border px-1 py-1 text-center w-[5%] sm:w-[4%]">지역</TableHead>
               <TableHead className="border px-1 py-1 text-center w-[8%] sm:w-[6%]">사냥터</TableHead>
-              <TableHead className="border px-2 py-1 text-center w-[4.5%] sm:w-[3.5%]">레벨</TableHead>
+              <TableHead className="border px-1.5 py-1 text-center whitespace-nowrap w-[6%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
@@ -89,7 +89,7 @@ export default function OdinHitRateTool() {
                   <TableCell className="border px-1 py-1" />
                   <TableCell className="border px-1 py-1 whitespace-nowrap text-center">{d.zone}</TableCell>
                   <TableCell className="border px-1 py-1 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
-                  <TableCell className="border px-2 py-1 text-center whitespace-nowrap">{d.level}</TableCell>
+                  <TableCell className="border px-1.5 py-1 text-center whitespace-nowrap">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
