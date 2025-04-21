@@ -67,14 +67,14 @@ export default function OdinHitRateTool() {
         <Table className="table-auto w-full border-separate border-spacing-0 border border-gray-300 text-sm text-center">
           <TableHeader>
             <TableRow>
-              <TableHead className="border px-6 py-3 w-12" />
-              <TableHead className="border px-6 py-3 text-center w-[9%]">지역</TableHead>
-              <TableHead className="border px-6 py-3 text-center w-[18%]">사냥터</TableHead>
-              <TableHead className="border px-6 py-3 text-center w-[9%]">레벨</TableHead>
+              <TableHead className="border px-3 py-2 w-6" />
+              <TableHead className="border px-3 py-2 text-center w-[6%]">지역</TableHead>
+              <TableHead className="border px-3 py-2 text-center w-[12%]">사냥터</TableHead>
+              <TableHead className="border px-3 py-2 text-center w-[6%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
-                  className="border px-6 py-3 whitespace-nowrap text-center w-[11%]"
+                  className="border px-4 py-2 whitespace-nowrap text-center w-[11%]"
                 >
                   {label} 도달
                 </TableHead>
@@ -86,14 +86,14 @@ export default function OdinHitRateTool() {
               const res = calculateRow(d.level);
               return (
                 <TableRow key={idx} className="odd:bg-white even:bg-gray-50">
-                  <TableCell className="border px-6 py-3" />
-                  <TableCell className="border px-6 py-3 whitespace-nowrap text-center">{d.zone}</TableCell>
-                  <TableCell className="border px-6 py-3 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
-                  <TableCell className="border px-6 py-3 text-center">{d.level}</TableCell>
+                  <TableCell className="border px-3 py-2" />
+                  <TableCell className="border px-3 py-2 whitespace-nowrap text-center">{d.zone}</TableCell>
+                  <TableCell className="border px-3 py-2 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
+                  <TableCell className="border px-3 py-2 text-center">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
-                      className={`border px-6 py-3 whitespace-nowrap text-center ${res[label].met ? "text-green-600" : "text-red-600"}`}
+                      className={`border px-3 py-2 whitespace-nowrap text-center ${res[label].met ? "text-green-600" : "text-red-600"}`}
                     >
                       {res[label].met
                         ? "⭕"
