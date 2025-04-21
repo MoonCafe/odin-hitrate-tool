@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Input } from "./components/ui/input.jsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table.jsx";
+import { Input } from "../components/ui/input.jsx";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table.jsx";
 
 const huntingData = [
   { zone: "요툰하임", name: "공허의 골짜기", level: 48 },
@@ -60,6 +60,7 @@ export default function OdinHitRateTool() {
         <Table className="table-auto w-full border border-gray-300 text-sm text-center">
           <TableHeader className="bg-gray-100">
             <TableRow>
+              <TableHead className="border px-2 py-2 w-4"></TableHead>
               <TableHead className="border px-2 py-2">지역</TableHead>
               <TableHead className="border px-2 py-2">사냥터</TableHead>
               <TableHead className="border px-2 py-2">레벨</TableHead>
@@ -75,9 +76,10 @@ export default function OdinHitRateTool() {
               const res = calculateRow(d.level);
               return (
                 <TableRow key={idx} className="odd:bg-white even:bg-gray-50">
-                  <TableCell className="border px-2 py-2 whitespace-nowrap">{d.zone}</TableCell>
-                  <TableCell className="border px-2 py-2 whitespace-nowrap text-left">{d.name}</TableCell>
-                  <TableCell className="border px-2 py-2">{d.level}</TableCell>
+                  <TableCell className="border px-2 py-2"></TableCell>
+                  <TableCell className="border px-2 py-2 whitespace-nowrap text-center">{d.zone}</TableCell>
+                  <TableCell className="border px-2 py-2 whitespace-nowrap text-center">{d.name}</TableCell>
+                  <TableCell className="border px-2 py-2 text-center">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
