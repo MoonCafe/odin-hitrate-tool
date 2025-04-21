@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Input } from "./components/ui/input.jsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table.jsx";
+import { Input } from "components/ui/input.jsx";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "components/ui/table.jsx";
 
 const huntingData = [
   { zone: "요툰하임", name: "공허의 골짜기", level: 48 },
@@ -49,6 +49,7 @@ export default function OdinHitRateTool() {
   return (
     <div className="pl-6 p-6 space-y-8 max-w-full text-sm sm:text-base">
       <h1 className="text-3xl font-bold mb-4 text-gray-800">오딘 명중률 계산기</h1>
+
       <Input
         type="number"
         placeholder="명중 수치를 입력해 주세요."
@@ -56,37 +57,40 @@ export default function OdinHitRateTool() {
         className="w-full sm:w-64 text-base border rounded p-2"
         onChange={(e) => setAccuracy(Number(e.target.value))}
       />
+
       <div className="overflow-x-auto">
-        <Table className="table-auto w-full border-separate border-spacing-0 border border-gray-300 text-sm text-center">
+        <Table className="table-auto w-full border-separate border-spacing-x-2 border border-gray-300 text-sm text-center">
           <TableHeader className="bg-gray-100">
             <TableRow>
-              <TableHead className="border px-6 py-3 w-12"></TableHead>
-              <TableHead className="border px-6 py-3 text-center w-[9%]">지역</TableHead>
-              <TableHead className="border px-6 py-3 text-center w-[18%]">사냥터</TableHead>
-              <TableHead className="border px-6 py-3 text-center w-[9%]">레벨</TableHead>
+              <TableHead className="border px-6 py-3 w-4"></TableHead>
+              <TableHead className="border px-6 py-3 text-center w-[10%]">지역</TableHead>
+              <TableHead className="border px-6 py-3 text-center w-[20%]">사냥터</TableHead>
+              <TableHead className="border px-6 py-3 text-center w-[8%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
-                <TableHead
-                  key={label}
-                  className="border px-6 py-3 whitespace-nowrap text-center w-[11%]"
-                >
+                <TableHead key={label} className="border px-6 py-3 whitespace-nowrap text-center w-[10%]">
                   {label} 도달
                 </TableHead>
               ))}
             </TableRow>
           </TableHeader>
+
           <TableBody>
             {huntingData.map((d, idx) => {
               const res = calculateRow(d.level);
               return (
                 <TableRow key={idx} className="odd:bg-white even:bg-gray-50">
                   <TableCell className="border px-6 py-3"></TableCell>
-                  <TableCell className="border px-6 py-3 whitespace-nowrap text-center">{d.zone}</TableCell>
-                  <TableCell className="border px-6 py-3 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
+                  <TableCell className="border px-6 py-3 text-center whitespace-nowrap">{d.zone}</TableCell>
+                  <TableCell className="border px-6 py-3 text-center whitespace-nowrap text-blue-700 font-medium">
+                    {d.name}
+                  </TableCell>
                   <TableCell className="border px-6 py-3 text-center">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
-                      className={`border px-6 py-3 whitespace-nowrap text-center ${res[label].met ? "text-green-600" : "text-red-600"}`}
+                      className={`border px-6 py-3 text-center whitespace-nowrap ${
+                        res[label].met ? "text-green-600" : "text-red-600"
+                      }`}
                     >
                       {res[label].met ? "⭕" : `X (필요: ${res[label].required}, 남음: ${res[label].remain})`}
                     </TableCell>
