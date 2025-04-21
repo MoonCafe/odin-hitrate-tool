@@ -54,7 +54,7 @@ export default function OdinHitRateTool() {
   };
 
   return (
-    <div className="pl-6 p-6 space-y-8 max-w-full text-sm sm:text-base">
+    <div className="px-4 sm:px-6 space-y-8 max-w-full text-sm sm:text-base">
       <h1 className="text-3xl font-bold mb-4 text-gray-800">오딘 명중률 계산기</h1>
       <Input
         type="number"
@@ -68,9 +68,9 @@ export default function OdinHitRateTool() {
           <TableHeader>
             <TableRow>
               <TableHead className="border px-3 py-2 w-6" />
-              <TableHead className="border px-3 py-2 text-center w-[6%]">지역</TableHead>
-              <TableHead className="border px-3 py-2 text-center w-[12%]">사냥터</TableHead>
-              <TableHead className="border px-3 py-2 text-center w-[6%]">레벨</TableHead>
+              <TableHead className="border px-3 py-2 text-center w-[5%]">지역</TableHead>
+              <TableHead className="border px-3 py-2 text-center w-[10%]">사냥터</TableHead>
+              <TableHead className="border px-3 py-2 text-center w-[5%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
