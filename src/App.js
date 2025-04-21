@@ -68,9 +68,9 @@ export default function OdinHitRateTool() {
           <TableHeader>
             <TableRow>
               <TableHead className="border px-1 py-1 w-2" />
-              <TableHead className="border px-2 py-1 text-center w-[2%]">지역</TableHead>
-              <TableHead className="border px-2 py-1 text-center w-[5%]">사냥터</TableHead>
-              <TableHead className="border px-2 py-1 text-center w-[2%]">레벨</TableHead>
+              <TableHead className="border px-1 py-1 text-center w-[3%]">지역</TableHead>
+              <TableHead className="border px-1 py-1 text-center w-[5%]">사냥터</TableHead>
+              <TableHead className="border px-2 py-1 text-center w-[3.5%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
@@ -87,9 +87,9 @@ export default function OdinHitRateTool() {
               return (
                 <TableRow key={idx} className="odd:bg-white even:bg-gray-50">
                   <TableCell className="border px-1 py-1" />
-                  <TableCell className="border px-2 py-1 whitespace-nowrap text-center">{d.zone}</TableCell>
-                  <TableCell className="border px-2 py-1 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
-                  <TableCell className="border px-2 py-1 text-center">{d.level}</TableCell>
+                  <TableCell className="border px-1 py-1 whitespace-nowrap text-center">{d.zone}</TableCell>
+                  <TableCell className="border px-1 py-1 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
+                  <TableCell className="border px-2 py-1 text-center whitespace-nowrap">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
