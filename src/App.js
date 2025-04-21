@@ -60,10 +60,10 @@ export default function OdinHitRateTool() {
         <Table className="table-auto w-full border border-gray-300 text-sm text-center">
           <TableHeader className="bg-gray-100">
             <TableRow>
-              <TableHead className="border px-2 py-2 w-4"></TableHead>
-              <TableHead className="border px-2 py-2">지역</TableHead>
-              <TableHead className="border px-2 py-2">사냥터</TableHead>
-              <TableHead className="border px-2 py-2">레벨</TableHead>
+              <TableHead className="border px-2 py-2 w-12"></TableHead>
+              <TableHead className="border px-2 py-2 text-center">지역</TableHead>
+              <TableHead className="border px-2 py-2 text-center">사냥터</TableHead>
+              <TableHead className="border px-2 py-2 text-center">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead key={label} className="border px-2 py-2 whitespace-nowrap">
                   {label} 도달
