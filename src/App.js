@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Input } from "../components/ui/input.jsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table.jsx";
+import { Input } from "components/ui/input.jsx";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "components/ui/table.jsx";
 
 const huntingData = [
   { zone: "요툰하임", name: "공허의 골짜기", level: 48 },
