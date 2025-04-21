@@ -55,12 +55,12 @@ export default function OdinHitRateTool() {
 
   return (
     <div className="space-y-8 max-w-screen-xl mx-auto text-sm sm:text-base px-4 sm:px-6">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">오딘 명중률 계산기</h1>
+      <h1 className="text-3xl font-bold mb-4 text-gray-800 text-center sm:text-left">오딘 명중률 계산기</h1>
       <Input
         type="number"
         placeholder="명중 수치를 입력해 주세요."
         value={accuracy === 0 ? "" : accuracy}
-        className="w-full sm:w-64 text-base border rounded p-2"
+        className="w-full sm:w-64 text-base border rounded p-2 block mx-auto sm:mx-0"
         onChange={(e) => setAccuracy(Number(e.target.value))}
       />
       <div className="overflow-x-auto">
@@ -68,9 +68,9 @@ export default function OdinHitRateTool() {
           <TableHeader>
             <TableRow>
               <TableHead className="border px-1 py-1 w-2" />
-              <TableHead className="border px-1 py-1 text-center w-[3%]">지역</TableHead>
-              <TableHead className="border px-1 py-1 text-center w-[5%]">사냥터</TableHead>
-              <TableHead className="border px-2 py-1 text-center w-[3.5%]">레벨</TableHead>
+              <TableHead className="border px-1 py-1 text-center w-[5%] sm:w-[4%]">지역</TableHead>
+              <TableHead className="border px-1 py-1 text-center w-[8%] sm:w-[6%]">사냥터</TableHead>
+              <TableHead className="border px-2 py-1 text-center w-[4.5%] sm:w-[3.5%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
