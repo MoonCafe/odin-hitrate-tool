@@ -54,7 +54,7 @@ export default function OdinHitRateTool() {
   };
 
   return (
-    <div className="px-4 sm:px-6 space-y-8 max-w-full text-sm sm:text-base">
+    <div className="space-y-8 max-w-screen-xl mx-auto text-sm sm:text-base px-4 sm:px-6">
       <h1 className="text-3xl font-bold mb-4 text-gray-800">오딘 명중률 계산기</h1>
       <Input
         type="number"
@@ -64,17 +64,17 @@ export default function OdinHitRateTool() {
         onChange={(e) => setAccuracy(Number(e.target.value))}
       />
       <div className="overflow-x-auto">
-        <Table className="table-auto w-full border-separate border-spacing-0 border border-gray-300 text-sm text-center">
+        <Table className="table-auto w-full min-w-[768px] sm:min-w-full border-separate border-spacing-0 border border-gray-300 text-sm text-center">
           <TableHeader>
             <TableRow>
-              <TableHead className="border px-3 py-2 w-6" />
-              <TableHead className="border px-3 py-2 text-center w-[5%]">지역</TableHead>
-              <TableHead className="border px-3 py-2 text-center w-[10%]">사냥터</TableHead>
-              <TableHead className="border px-3 py-2 text-center w-[5%]">레벨</TableHead>
+              <TableHead className="border px-1 py-1 w-2" />
+              <TableHead className="border px-2 py-1 text-center w-[2%]">지역</TableHead>
+              <TableHead className="border px-2 py-1 text-center w-[5%]">사냥터</TableHead>
+              <TableHead className="border px-2 py-1 text-center w-[2%]">레벨</TableHead>
               {Object.keys(offsets).map((label) => (
                 <TableHead
                   key={label}
-                  className="border px-4 py-2 whitespace-nowrap text-center w-[11%]"
+                  className="border px-4 py-2 whitespace-nowrap text-center w-[14%]"
                 >
                   {label} 도달
                 </TableHead>
@@ -86,10 +86,10 @@ export default function OdinHitRateTool() {
               const res = calculateRow(d.level);
               return (
                 <TableRow key={idx} className="odd:bg-white even:bg-gray-50">
-                  <TableCell className="border px-3 py-2" />
-                  <TableCell className="border px-3 py-2 whitespace-nowrap text-center">{d.zone}</TableCell>
-                  <TableCell className="border px-3 py-2 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
-                  <TableCell className="border px-3 py-2 text-center">{d.level}</TableCell>
+                  <TableCell className="border px-1 py-1" />
+                  <TableCell className="border px-2 py-1 whitespace-nowrap text-center">{d.zone}</TableCell>
+                  <TableCell className="border px-2 py-1 whitespace-nowrap text-center text-blue-700 font-medium">{d.name}</TableCell>
+                  <TableCell className="border px-2 py-1 text-center">{d.level}</TableCell>
                   {Object.keys(offsets).map((label) => (
                     <TableCell
                       key={label}
